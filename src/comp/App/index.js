@@ -2,15 +2,18 @@ import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './index.css';
 
-import Search from '../Search';
-import Table from '../Table';
-import Button from '../Button';
+import {
+  Search,
+  Table,
+  Button,
+} from '../';
 
 import {
   API_URL,
   PARAM_PAGE,
   DEFAULT_QUERY,
 } from '../../const';
+
 
 class App extends Component {
 
