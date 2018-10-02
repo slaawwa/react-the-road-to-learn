@@ -73,6 +73,7 @@ export default class Table extends Component {
                             sortKey={'TITLE'}
                             onSort={this.onSort}
                             activeSortKey={sortKey}
+                            isSortReverse={isSortReverse}
                         >
                           Заголовок
                         </Sort>
@@ -82,6 +83,7 @@ export default class Table extends Component {
                             sortKey={'AUTHOR'}
                             onSort={this.onSort}
                             activeSortKey={sortKey}
+                            isSortReverse={isSortReverse}
                         >
                           Автор
                         </Sort>
@@ -91,6 +93,7 @@ export default class Table extends Component {
                             sortKey={'COMMENTS'}
                             onSort={this.onSort}
                             activeSortKey={sortKey}
+                            isSortReverse={isSortReverse}
                         >
                           Коментарі
                         </Sort>
@@ -100,6 +103,7 @@ export default class Table extends Component {
                             sortKey={'POINTS'}
                             onSort={this.onSort}
                             activeSortKey={sortKey}
+                            isSortReverse={isSortReverse}
                         >
                           Бали
                         </Sort>
