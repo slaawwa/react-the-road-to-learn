@@ -1,3 +1,4 @@
+
 import React, { Component } from 'react';
 // import logo from './logo.svg';
 import './index.css';
@@ -5,7 +6,7 @@ import './index.css';
 import {
   Search,
   Table,
-  Button,
+  ButtonWithLoading,
 } from '../';
 
 import {
@@ -13,7 +14,6 @@ import {
   PARAM_PAGE,
   DEFAULT_QUERY,
 } from '../../const';
-
 
 class App extends Component {
 
@@ -27,6 +27,7 @@ class App extends Component {
       results: {},
       searchKey: '',
       error: null,
+      isLoading: false,
     }
 
     // this.onDismiss = this.onDismiss.bind(this);
@@ -80,10 +81,14 @@ class App extends Component {
           page,
         },
       },
+      isLoading: false,
     })
   }
 
   fetchSearchTopStories(searchTerm, page=0) {
+
+    this.setState({isLoading: true});
+
     fetch(`${API_URL}${searchTerm}&${PARAM_PAGE}${page}`)
       .then(r => r.json())
       .then(result => this._isMounted && this.setSearchTopStories(result))
@@ -118,6 +123,7 @@ class App extends Component {
       results,
       searchKey,
       error,
+      isLoading,
     } = this.state;
     
     const page = (
@@ -158,9 +164,12 @@ class App extends Component {
           : null
         }
         <div className="interactions">
-          <Button onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}>
+          <ButtonWithLoading
+            isLoading={isLoading}
+            onClick={() => this.fetchSearchTopStories(searchKey, page + 1)}
+          >
             Більше інфи!
-          </Button>
+          </ButtonWithLoading>
         </div>
       </div>
     );

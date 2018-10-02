@@ -1,37 +1,55 @@
 
-import React/*, { Component }*/ from 'react';
+import React, { Component } from 'react';
 
-// export default class Search extends Component {
-//   render() {
-//     const {value, onChange, children} = this.props;
-//     return (
-//           <form>
-//             {children} <input
-//               placeholder="Search hare"
-//               onChange={onChange}
-//               value={value}
-//               type="text"
-//             />
-//           </form>
-//     )
-//   }
-// }
+export default class Search extends Component {
 
-export default ({
-  value,
-  onChange,
-  onSubmit,
-  children,
-}) => {
-  return (
-    <form onSubmit={onSubmit}>
-      <input
-        placeholder="Search hare"
-        onChange={onChange}
-        value={value}
-        type="text"
-      />
-      <button type="submit">{children}</button>
-    </form>
-  )
+  componentDidMount() {
+    if (this.input) {
+      this.input.focus();
+    }
+  }
+
+  render() {
+
+    const {
+      value,
+      onChange,
+      onSubmit,
+      children,
+    } = this.props;
+
+    return (
+      <form onSubmit={onSubmit}>
+        <input
+          placeholder="Search hare"
+          onChange={onChange}
+          value={value}
+          ref={(node) => { this.input = node; }}
+          type="text"
+        />
+        <button type="submit">{children}</button>
+      </form>
+    )
+  }
 }
+
+// export default ({
+//   value,
+//   onChange,
+//   onSubmit,
+//   children,
+// }) => {
+//   let input;
+//   return (
+//     <form onSubmit={onSubmit}>
+//       <input
+//         placeholder="Search hare"
+//         onChange={onChange}
+//         value={value}
+//         ref={(node) => input = node;}
+//         type="text"
+//       />
+//       <button type="submit">{children}</button>
+//     </form>
+//   )
+// }
