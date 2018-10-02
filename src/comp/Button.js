@@ -1,12 +1,14 @@
 
 import React, { Component } from 'react';
 
+import PropTypes from 'prop-types';
+
 export default class Button extends Component {
   render() {
 
     const {
       onClick,
-      className='',
+      className,
       children,
     } = this.props;
 
@@ -20,4 +22,14 @@ export default class Button extends Component {
       </button>
     )
   }
+}
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string,
+  children: PropTypes.node.isRequired,
+}
+
+Button.defaultProps = {
+  className: '',
 }
