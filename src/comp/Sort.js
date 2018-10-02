@@ -16,8 +16,6 @@ export default ({ sortKey, onSort, children, activeSortKey, isSortReverse}) => {
             : '↓'
     }
 
-    console.log('activeSortKey:', activeSortKey)
-
     return <Button
         onClick={() => onSort(sortKey)}
         className={sortClass.join(' ')}
